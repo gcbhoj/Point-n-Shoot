@@ -4,10 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Point-n-shoot Game</title>
+
     <link rel="stylesheet" href="./css/style.css" />
-    <script type="module" defer src="./script/script.js"></script>
+    <script type="module" defer src="./script/Index.js"></script>
   </head>
   <body>
+    <div id="welcomeScreen">
+      <h3>Welcome to the Forest Cleanup!</h3>
+      <p>
+        Help the witch protect the forest by stopping the bugs before they
+        escape! Click on the bugs to catch them — but be careful, if any bug
+        manages to fly away, the game is over.
+      </p>
+      <h3>How many bugs can you catch? Good luck! 🧙‍♀️🐞🌲</h3>
+      <button id="gameStartButton">Start Clean Up!</button>
+    </div>
+    <div>
+      <img src="./images/purplebug.png" alt="purplebug" id="purpleBug" hidden />
+    </div>
     <canvas id="canvas1"></canvas>
   </body>
 </html>
