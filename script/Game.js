@@ -1,5 +1,5 @@
 import { Enemy } from "./PurpleBug.js";
-const scoreDisplay = document.getElementById("scoreDisplay");
+const actualScoreDisplay = document.getElementById("actualScoreDisplay")
 export class Game {
   constructor(canvas, onGameOver) {
     this.canvas = canvas;
@@ -40,7 +40,7 @@ export class Game {
       enemy.update(deltaTime);
       if (enemy.x + enemy.width < 0) {
         this.gameOver = true;
-        scoreDisplay.textContent = this.score;
+        actualScoreDisplay.value = this.score
       }
     });
 

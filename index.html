@@ -13,24 +13,23 @@
     <script type="module" defer src="./script/Index.js"></script>
   </head>
   <body>
-    <div id="gameOverScreen">
+    <div id="gameOverScreen" style="display: none">
       <h3>
         Thank you... <br /><span
-          >for taking care of <span id="scoreDisplay"></span> bugs</span
+          >for taking care of
+          <input
+            type="number"
+            readonly
+            id="actualScoreDisplay"
+            name="actualScoreDisplay"
+            value="0"
+          />
+          bugs</span
         >
       </h3>
-      <input
-        type="number"
-        readonly
-        id="scoreDisplay"
-        name="scoreDisplay"
-        value="0"
-      />
 
-      <h3>would you like to give a another try to exceed your score...</h3>
-
-      <div class="favoritecontainer">
-        <h3>How do you rate this game?</h3>
+      <div class="ratingcontainer">
+        <h3>Rate this game – is it a keeper?</h3>
 
         <input
           type="range"
@@ -50,13 +49,36 @@
           value="0.5"
         />
       </div>
+      <div>
+        <h3>Is this a game you'd mark as a favorite?</h3>
+        <label>
+          <input
+            type="radio"
+            name="isFavorite"
+            id="isFavoriteTrue"
+            value="true"
+          />
+          Yes
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="isFavorite"
+            id="isFavoriteFalse"
+            value="false"
+          />
+          No
+        </label>
+      </div>
+
+      <h3>would you like to give a another try to exceed your score...</h3>
 
       <div id="restartSection">
         <button id="restartGame">Restart Game</button>
         <button id="backToZatam">Back to Zat.am</button>
       </div>
     </div>
-    <div id="welcomeScreen" style="display: none" ;>
+    <div id="welcomeScreen">
       <h3>Welcome to the Forest Cleanup!</h3>
       <p>
         Help the witch protect the forest by stopping the bugs before they

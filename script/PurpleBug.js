@@ -5,7 +5,7 @@ export class Enemy {
     this.height = 100;
     this.x = this.game.canvas.width;
     this.y = Math.random() * (this.game.canvas.height - this.height);
-    this.speedX = Math.random() * 4 + 1;
+    this.speedX = Math.random() * 5+1 ;
     this.markedForDeletion = false;
     this.image = new Image();
     this.image.src = "images/purplebug.png"; // ✅ Corrected path
