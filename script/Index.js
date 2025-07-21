@@ -5,23 +5,49 @@ window.addEventListener("DOMContentLoaded", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
+  const gameStartButton = document.getElementById("gameStartButton");
+  const restartGameButton = document.getElementById("restartGame");
   const welcomeScreen = document.getElementById("welcomeScreen");
-  let game; // To hold the game instance
+  const gameOverScreen = document.getElementById("gameOverScreen");
 
-window.addEventListener("click", (e) => {
-  const button = e.target.closest("#gameStartButton");
-  if (button && !game) {
-    welcomeScreen.style.display = "none";
-    canvas.style.display = "block";
+  let game = null; // To hold the game instance
 
-    game = new Game(canvas, () => {
-      canvas.style.display = "none";
-      welcomeScreen.style.display = "block";
-      game = null; // reset for replay
+  // Start game
+  gameStartButton.addEventListener("click", () => {
+    if (!game) {
+      welcomeScreen.style.display = "none";
+      canvas.style.display = "block";
+
+      game = new Game(canvas, () => {
+        canvas.style.display = "none";
+        gameOverScreen.style.display = "block";
+        game = null; // reset for replay
+      });
+    }
+  });
+
+  // Restart game
+  if (restartGameButton) {
+    restartGameButton.addEventListener("click", () => {
+      gameOverScreen.style.display = "none";
+      canvas.style.display = "block";
+
+      game = new Game(canvas, () => {
+        canvas.style.display = "none";
+        gameOverScreen.style.display = "block";
+        game = null;
+      });
     });
-
-    console.log("Game started");
   }
-});
+  // Slider to get rating review from player
+  const slider = document.getElementById("favoriteRating");
+  const ratingDisplay = document.getElementById("ratingDisplay");
 
+  // Set default values
+  ratingDisplay.value = slider.value;
+
+  // Update values when slider is used
+  slider.oninput = function () {
+    ratingDisplay.value = this.value;
+  };
 });

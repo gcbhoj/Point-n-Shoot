@@ -53,3 +53,47 @@ body {
   box-shadow: 5px 5px 5px;
   cursor: pointer;
 }
+#gameOverScreen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 500px;
+  border-radius: 7px;
+  box-shadow: -5px -5px 5px beige;
+  display: flex;
+  flex-direction: column;
+  word-spacing: 1.25px;
+  letter-spacing: 1.25px;
+  font-weight: bolder;
+  line-height: 25px;
+  text-shadow: 5px -5px 5px grey;
+  color: aliceblue;
+  justify-content: center;
+  text-transform: capitalize;
+}
+#restartSection {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;
+}
+#restartGame,
+#backToZatam {
+  height: 36px;
+  border-radius: 7px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 5px;
+}
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+#ratingDisplay {
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+}

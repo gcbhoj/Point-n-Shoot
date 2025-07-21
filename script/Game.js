@@ -1,5 +1,5 @@
 import { Enemy } from "./PurpleBug.js";
-
+const scoreDisplay = document.getElementById("scoreDisplay");
 export class Game {
   constructor(canvas, onGameOver) {
     this.canvas = canvas;
@@ -40,6 +40,7 @@ export class Game {
       enemy.update(deltaTime);
       if (enemy.x + enemy.width < 0) {
         this.gameOver = true;
+        scoreDisplay.textContent = this.score;
       }
     });
 
@@ -62,19 +63,18 @@ export class Game {
 
     this.update(deltaTime);
     this.draw();
-if (!this.gameOver) {
-  requestAnimationFrame(this.animate.bind(this));
-} else {
-  this.ctx.fillStyle = "red";
-  this.ctx.font = "40px Impact";
-  this.ctx.fillText(
-    "Game Over",
-    this.canvas.width / 2 - 100,
-    this.canvas.height / 2
-  );
+    if (!this.gameOver) {
+      requestAnimationFrame(this.animate.bind(this));
+    } else {
+      this.ctx.fillStyle = "red";
+      this.ctx.font = "40px Impact";
+      this.ctx.fillText(
+        "Game Over",
+        this.canvas.width / 2 - 100,
+        this.canvas.height / 2
+      );
 
-  if (this.onGameOver) this.onGameOver(); // notify main app
-}
-
+      if (this.onGameOver) this.onGameOver(); // notify main app
+    }
   }
 }

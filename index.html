@@ -4,12 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Point-n-shoot Game</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
     <link rel="stylesheet" href="./css/style.css" />
     <script type="module" defer src="./script/Index.js"></script>
   </head>
   <body>
-    <div id="welcomeScreen">
+    <div id="gameOverScreen">
+      <h3>
+        Thank you... <br /><span
+          >for taking care of <span id="scoreDisplay"></span> bugs</span
+        >
+      </h3>
+      <h3>would you like to give a another try to exceed your score...</h3>
+
+      <div class="favoritecontainer">
+        <h3>How do you rate this game?</h3>
+
+        <input
+          type="range"
+          min="0"
+          max="5"
+          step="0.5"
+          value="0.5"
+          class="slider"
+          id="favoriteRating"
+        />
+
+        <input
+          type="number"
+          step="0.5"
+          readonly
+          id="ratingDisplay"
+          name="favoriteRating"
+          value="0.5"
+        />
+      </div>
+
+      <div id="restartSection">
+        <button id="restartGame">Restart Game</button>
+        <button id="backToZatam">Back to Zat.am</button>
+      </div>
+    </div>
+    <div id="welcomeScreen" style="display: none" ;>
       <h3>Welcome to the Forest Cleanup!</h3>
       <p>
         Help the witch protect the forest by stopping the bugs before they
