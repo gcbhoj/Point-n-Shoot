@@ -62,7 +62,9 @@ window.addEventListener("DOMContentLoaded", () => {
     ratingDisplay.value = this.value;
   };
 
-  const { gameId, userId } = req.parms();
+  const urlParams = new URLSearchParams(window.location.search);
+  const gameId = urlParams.get("gameId");
+  const userId = urlParams.get("userId");
 
   // function to set isfavorite to true or false
 
