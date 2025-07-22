@@ -6,7 +6,7 @@ This application is built using **HTML5 Canvas (2D context)** and **vanilla Java
 
 ## Purpose of the Project
 
-The core goal behind this game is to **demonstrate how game scores and metadata can be exchanged between two HTML pages without using any API calls**.
+The core goal behind this game is to **demonstrate how game scores and metadata can be exchanged between two HTML pages without using API calls**.
 
 ## How It Works
 
