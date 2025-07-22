@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const restartGameButton = document.getElementById("restartGame");
   const welcomeScreen = document.getElementById("welcomeScreen");
   const gameOverScreen = document.getElementById("gameOverScreen");
+  const baseUrl = "http://localhost:5000/api";
 
   let game = null; // To hold the game instance
 
@@ -61,6 +62,8 @@ window.addEventListener("DOMContentLoaded", () => {
     ratingDisplay.value = this.value;
   };
 
+  const { gameId, userId } = req.parms();
+
   // function to set isfavorite to true or false
 
   function sendGameData() {
@@ -75,12 +78,27 @@ window.addEventListener("DOMContentLoaded", () => {
       : undefined;
 
     const gameData = {
+      gameId: gameId,
+      userId: userId,
       score: parseFloat(score),
-      totalTimeSpent: totalTimeSpent,
+      playTime: totalTimeSpent,
       rating: parseFloat(rating),
       isFavorite: isFavorite,
     };
 
-    console.log("GameData", gameData);
+    if (!userId) {
+      console.log("GameData", gameData);
+    }
+
+    fetch(`${baseUrl}/gamesData/addNew`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(gameData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("Server response:", data))
+      .catch((err) => console.error("Error sending game data:", err));
   }
 });
