@@ -87,7 +87,7 @@ window.addEventListener("DOMContentLoaded", () => {
     };
 
     if (!userId) {
-      console.log("GameData", gameData);
+      return console.log("GameData", gameData);
     }
 
     fetch(`${baseUrl}/gamesData/addNew`, {
