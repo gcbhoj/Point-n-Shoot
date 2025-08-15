@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const restartGameButton = document.getElementById("restartGame");
   const welcomeScreen = document.getElementById("welcomeScreen");
   const gameOverScreen = document.getElementById("gameOverScreen");
-  const baseUrl = "http://localhost:5000/api";
+  const baseUrl = "http://localhost:5000/api"; // Replace with the original backend URL for ZATAM, DO NOT DIRECTLY EXPOSE THE ABOVE API
 
   let game = null; // To hold the game instance
 
@@ -61,7 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
   slider.oninput = function () {
     ratingDisplay.value = this.value;
   };
-
+// desctructuring the gameID and userID from URL
   const urlParams = new URLSearchParams(window.location.search);
   const gameId = urlParams.get("gameId");
   const userId = urlParams.get("userId");
