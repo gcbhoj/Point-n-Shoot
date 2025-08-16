@@ -61,10 +61,15 @@ window.addEventListener("DOMContentLoaded", () => {
   slider.oninput = function () {
     ratingDisplay.value = this.value;
   };
-// desctructuring the gameID and userID from URL
+  // desctructuring the gameID and userID from URL
   const urlParams = new URLSearchParams(window.location.search);
-  const gameId = urlParams.get("gameId");
+  // for testing purposes comment line 66 & 67
+  // uncomment line 71 & 72 get a user id and game id from db or postman 
+  const gameId = urlParams.get("gameId"); 
   const userId = urlParams.get("userId");
+
+  // const gameId = "G_20250810_135259_168_347";
+  // const userId = "U_20250810_134941_848_605";
 
   // function to set isfavorite to true or false
 
@@ -83,7 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
       gameId: gameId,
       userId: userId,
       score: parseFloat(score),
-      playTime: totalTimeSpent,
+      playTime: parseFloat(totalTimeSpent),
       rating: parseFloat(rating),
       isFavorite: isFavorite,
     };
